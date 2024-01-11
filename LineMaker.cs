@@ -49,7 +49,7 @@ public class LineMaker : MonoBehaviour
             List<float> list = new List<float>();
             for (float t = 0; t < 1; t += skalaD)
             {
-                clip.SampleAnimation(anim.gameObject, t);
+                clip.SampleAnimation(anim.gameObject, t * clip.length); // burada SampleAnimation'ın ikinci parametresi animasyonun gerçek süresi cinsinden olduğu için 0-1 aralığındaki t'yi animasyonun gerçek uzunluğu ile çarpmamız gerekiyormuş
                 float dist = Vector3.Distance(
                     anim.GetBoneTransform(b1).position,
                     anim.GetBoneTransform(b2).position
